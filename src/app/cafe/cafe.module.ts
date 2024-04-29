@@ -9,6 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [CafeListComponent],
-  declarations: [CafeListComponent, CafeListComponent]
+  declarations: [CafeListComponent]
 })
 export class CafeModule { }
