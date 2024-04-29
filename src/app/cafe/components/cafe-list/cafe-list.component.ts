@@ -11,6 +11,10 @@ export class CafeListComponent implements OnInit {
 
   cafes: Cafe[] = [];
 
+  // Variables para contar tipos de cafés
+  countCafeOrigen: number = 0;
+  countCafeBlend: number = 0;
+
   constructor(private cafeService: CafeService) { }
 
   ngOnInit() {
@@ -20,6 +24,8 @@ export class CafeListComponent implements OnInit {
   loadCafes() {
     this.cafeService.getCafes().subscribe(cafes => {
       this.cafes = cafes;
+      this.countCafeOrigen = this.cafes.filter(cafe => cafe.tipo === 'Café de Origen').length;
+      this.countCafeBlend = this.cafes.filter(cafe => cafe.tipo === 'Blend').length;
     });
   }
 
